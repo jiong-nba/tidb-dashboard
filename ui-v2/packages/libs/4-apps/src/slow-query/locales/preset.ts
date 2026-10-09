@@ -85,7 +85,7 @@ function useLocales() {
   tk("fields.backoff_time", "Execution Backoff Time")
   tk(
     "fields.backoff_time.desc",
-    "The total backoff waiting time before retry when a query encounters errors (note: there may be multiple backoffs in parallel so that this may not be a wall time)",
+    "The total backoff waiting time before retry when a query encounters errors (note: there may be multiple backoffs in parallel so that this may not be a wall time",
   )
   tk("fields.lock_keys_time", "Lock Keys Time")
   tk(
@@ -215,6 +215,10 @@ function useLocales() {
   // additional fields
   tk("fields.backoff_detail", "Backoff Detail")
   tk("fields.backoff_total", "Backoff Total")
+  tk(
+    "fields.backoff_total.desc",
+    "The cumulative backoff sleep time of recorded requests in the statement execution context. It covers reads (including Point_Get) and the transaction commit, and overlaps with Execution Backoff Time and Commit Backoff Time, so do not add them together. It may exceed the query wall time when requests run in parallel. A value of 0 does not prove that no backoff occurred, because execution details may be unavailable.",
+  )
   tk("fields.binary_plan", "Binary Plan")
   tk("fields.cop_proc_max", "Max Cop Proc")
   tk("fields.cop_proc_p90", "P90 Cop Proc")
